@@ -63,3 +63,22 @@ func TestParseResult(t *testing.T) {
 
 	assert.Equal(t, expected, parsed)
 }
+
+func TestParseResultWithExtraSpaces(t *testing.T) {
+	input := " Nelson Mandela Bay Lions 1 ,   Cape Town Tigers 2 "
+
+	parsed := parseResult(input)
+
+	expected := result{
+		score{
+			Team:  "Nelson Mandela Bay Lions",
+			Goals: 1,
+		},
+		score{
+			Team:  "Cape Town Tigers",
+			Goals: 2,
+		},
+	}
+
+	assert.Equal(t, expected, parsed)
+}

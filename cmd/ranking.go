@@ -10,14 +10,21 @@ type score struct {
 	Goals int
 }
 
-type result [2]score
+type result []score
 
 func main() {
 
 }
 
 func parseResult(line string) result {
-	return [2]score{}
+	splitScores := strings.Split(line, ",")
+
+	res := result{}
+	for _, splitScore := range splitScores {
+		res = append(res, parseScore(strings.TrimSpace(splitScore)))
+	}
+
+	return res
 }
 
 func parseScore(input string) score {
