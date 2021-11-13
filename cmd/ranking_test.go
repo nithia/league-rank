@@ -44,3 +44,22 @@ func TestParseScoreWithSpaceInTeam(t *testing.T) {
 
 	assert.Equal(t, expected, parsed)
 }
+
+func TestParseResult(t *testing.T) {
+	input := "Lions 3, Tigers 1"
+
+	parsed := parseResult(input)
+
+	expected := result{
+		score{
+			Team:  "Lions",
+			Goals: 3,
+		},
+		score{
+			Team:  "Tigers",
+			Goals: 1,
+		},
+	}
+
+	assert.Equal(t, expected, parsed)
+}

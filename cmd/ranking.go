@@ -16,6 +16,10 @@ func main() {
 
 }
 
+func parseResult(line string) result {
+	return [2]score{}
+}
+
 func parseScore(input string) score {
 	lastSpace := strings.LastIndex(input, " ")
 
