@@ -1,0 +1,5 @@
+# IDE files
+.idea
+
+# macOS silliness
+.DS_Store
