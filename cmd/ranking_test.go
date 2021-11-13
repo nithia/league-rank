@@ -38,7 +38,7 @@ func TestParseScoreWithSpaceInTeam(t *testing.T) {
 	parsed := parseScore(input)
 
 	expected := score{
-		Team:  "Lions",
+		Team:  "Nelson Mandela Bay Lions",
 		Goals: 0,
 	}
 
