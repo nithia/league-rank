@@ -177,8 +177,8 @@ func TestGetRankings(t *testing.T) {
 
 	rankings := table.GetRankings()
 
-	assert.Len(t, rankings, 2)
-	assert.Equal(t, "Lions", rankings[0][0].Name)
-	assert.Equal(t, "Bears", rankings[1][0].Name)
-	assert.Equal(t, "Tigers", rankings[1][1].Name)
+	assert.Len(t, rankings, 3)
+	assert.Equal(t, "Lions", rankings[0].Name)
+	assert.Equal(t, "Bears", rankings[1].Name)
+	assert.Equal(t, "Tigers", rankings[2].Name)
 }
