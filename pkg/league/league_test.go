@@ -182,3 +182,23 @@ func TestGetRankings(t *testing.T) {
 	assert.Equal(t, "Bears", rankings[1].Name)
 	assert.Equal(t, "Tigers", rankings[2].Name)
 }
+
+func TestExample(t *testing.T) {
+	input := []string{
+		"Lions 3, Snakes 3",
+		"Tarantulas 1, FC Awesome 0",
+		"Lions 1, FC Awesome 1",
+		"Tarantulas 3, Snakes 1",
+		"Lions 4, Grouches 0"}
+
+	expected := "1. Tarantulas, 6 pts\n2. Lions, 5 pts\n3. FC Awesome, 1 pt\n3. Snakes, 1 pt\n5. Grouches, 0 pts\n"
+
+	table := RankTable{}
+	for _, line := range input {
+		table.Update(ParseResult(line))
+	}
+
+	rankings := table.String()
+
+	assert.Equal(t, expected, rankings)
+}
