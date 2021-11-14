@@ -11,7 +11,7 @@ func TestParseScore(t *testing.T) {
 
 	parsed := parseScore(input)
 
-	expected := score{
+	expected := Score{
 		Team:  "Lions",
 		Goals: 3,
 	}
@@ -24,7 +24,7 @@ func TestParseScoreWithMultipleSpaces(t *testing.T) {
 
 	parsed := parseScore(input)
 
-	expected := score{
+	expected := Score{
 		Team:  "Lions",
 		Goals: 2,
 	}
@@ -37,7 +37,7 @@ func TestParseScoreWithSpaceInTeam(t *testing.T) {
 
 	parsed := parseScore(input)
 
-	expected := score{
+	expected := Score{
 		Team:  "Nelson Mandela Bay Lions",
 		Goals: 0,
 	}
@@ -48,14 +48,14 @@ func TestParseScoreWithSpaceInTeam(t *testing.T) {
 func TestParseResult(t *testing.T) {
 	input := "Lions 3, Tigers 1"
 
-	parsed := parseResult(input)
+	parsed := ParseResult(input)
 
-	expected := result{
-		score{
+	expected := Result{
+		Score{
 			Team:  "Lions",
 			Goals: 3,
 		},
-		score{
+		Score{
 			Team:  "Tigers",
 			Goals: 1,
 		},
@@ -67,14 +67,14 @@ func TestParseResult(t *testing.T) {
 func TestParseResultWithExtraSpaces(t *testing.T) {
 	input := " Nelson Mandela Bay Lions 1 ,   Cape Town Tigers 2 "
 
-	parsed := parseResult(input)
+	parsed := ParseResult(input)
 
-	expected := result{
-		score{
+	expected := Result{
+		Score{
 			Team:  "Nelson Mandela Bay Lions",
 			Goals: 1,
 		},
-		score{
+		Score{
 			Team:  "Cape Town Tigers",
 			Goals: 2,
 		},
