@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"league/pkg/league"
+	"league-rank/pkg/league"
 )
 
 func main() {

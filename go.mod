@@ -1,4 +1,4 @@
-module league
+module league-rank
 
 go 1.17
 
