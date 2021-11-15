@@ -124,7 +124,7 @@ func TestUpdateRankTable(t *testing.T) {
 		},
 	}
 
-	input := "Tigers 2, Bears 2"
+	input := "Tigers 1, Bears 2"
 	result := ParseResult(input)
 
 	table.Update(result)
@@ -140,14 +140,14 @@ func TestUpdateRankTable(t *testing.T) {
 	assert.Equal(t, 3, table["Lions"].Points)
 
 	assert.Equal(t, 0, table["Tigers"].Won)
-	assert.Equal(t, 1, table["Tigers"].Drawn)
-	assert.Equal(t, 1, table["Tigers"].Lost)
-	assert.Equal(t, 1, table["Tigers"].Points)
+	assert.Equal(t, 0, table["Tigers"].Drawn)
+	assert.Equal(t, 2, table["Tigers"].Lost)
+	assert.Equal(t, 0, table["Tigers"].Points)
 
-	assert.Equal(t, 0, table["Bears"].Won)
-	assert.Equal(t, 1, table["Bears"].Drawn)
+	assert.Equal(t, 1, table["Bears"].Won)
+	assert.Equal(t, 0, table["Bears"].Drawn)
 	assert.Equal(t, 0, table["Bears"].Lost)
-	assert.Equal(t, 1, table["Bears"].Points)
+	assert.Equal(t, 3, table["Bears"].Points)
 }
 
 func TestGetRankings(t *testing.T) {
