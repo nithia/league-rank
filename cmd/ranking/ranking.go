@@ -31,9 +31,12 @@ func readInput(in *bufio.Reader) ([]string, error) {
 		line, err := in.ReadString('\n')
 		if err != nil {
 			// io.EOF is expected, anything else
-			// should be handled/reported
+			// should be reported
 			if err != io.EOF {
 				return nil, err
+			}
+			if line != "" {
+				lines = append(lines, line)
 			}
 			break
 		}
