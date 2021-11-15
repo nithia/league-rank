@@ -82,6 +82,12 @@ func (r RankTable) getTeam(name string) *Team {
 	return r[name]
 }
 
+func (r RankTable) UpdateAll(lines []string) {
+	for _, line := range lines {
+		r.Update(ParseResult(line))
+	}
+}
+
 const (
 	winPoints  = 3
 	drawPoints = 1
